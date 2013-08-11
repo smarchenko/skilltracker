@@ -1,0 +1,167 @@
+﻿<?xml version="1.0"?>
+<project name="skilltracker">
+  <description>
+    ---------------------------------------------------------------------------
+    Skill Tracker Database Deployment Script
+    Deploys the Skill Tracker database to a Microsoft SQL Server.
+
+    For this script to work, sqlcmd.exe needs to be in the PATH.
+    ---------------------------------------------------------------------------
+  </description>
+
+  <property name="database.mssql.commandline" value="-b -S ${env.sql.server} -E -t ${env.sql.database.timeout}"  />
+
+  <property name="tools.sqlpackage.exe" value="${global.paths.tools}\DAC\SqlPackage.exe" overwrite="false"/>
+  <property name="tools.sql.detach.script" value="${global.paths.tools}\SQL\detach.sql"/>
+  <fail message="SqlPackage.exe was not found (${tools.sqlpackage.exe})" unless="${file::exists( tools.sqlpackage.exe )}" />
+
+  <fail message="MsBuild.exe was not found (${env.msbuild.exe})" unless="${file::exists( env.msbuild.exe )}"/>
+  <property name="paths.database.project" value="${global.paths.source.folder}\SkillTracker.Database"/>
+  <property name="paths.datagenerator.project" value="${global.paths.source.folder}\SkillTracker.DataGenerator"/>
+  <property name="paths.datagenerator.project.file" value="${global.paths.datagenerator.project}\SkillTracker.DataGenerator.csproj"/>
+  <property name="paths.database.project.file" value="${paths.database.project}\SkillTracker.Database.sqlproj"/>
+  <property name="paths.database.DAC.package" value="${paths.database.project}\bin\Release\SkillTracker.Database.dacpac"/>
+
+
+  <target name="database.compile.package">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.compile.package
+      Output: Builds the DAC package for the database schema
+      ---------------------------------------------------------------------------
+    </description>
+
+    <fail message="Project file cannot be found (${paths.database.project.file})" unless="${file::exists(paths.database.project.file)}" />
+
+    <exec program="${env.msbuild.exe}">
+      <arg value="${paths.database.project.file}" />
+      <arg value="/t:Build" />
+      <arg value="/p:Configuration=Release" />
+    </exec>
+  </target>
+
+  <target name="database.create.stub">
+
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.create.stub
+      Output: Creates the SQL database according to the parameters
+      ---------------------------------------------------------------------------
+    </description>
+
+    <exec program="sqlcmd.exe" commandline="${database.mssql.commandline} -Q" failonerror="true" >
+      <arg value="IF EXISTS( SELECT 1 FROM [sys].[sysdatabases] WHERE LOWER( [name] ) LIKE N'${env.sql.database.name}' ) BEGIN PRINT 'Deleting existing database ''${env.sql.database.name}''.'; ALTER DATABASE [${env.sql.database.name}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE [${env.sql.database.name}]; END;" />
+    </exec>
+
+    <echo message="Creating database '${env.sql.database.name}' ..." />
+
+    <mkdir dir="${global.paths.database.base.folder}" failonerror="true" unless="${directory::exists(global.paths.database.base.folder)}"/>
+    <call target="database.remove.database.files"/>
+
+    <exec program="sqlcmd.exe" commandline="${database.mssql.commandline} -Q" failonerror="true" >
+      <arg value="
+           IF NOT EXISTS( SELECT 1 FROM [sys].[sysdatabases] WHERE LOWER( [name] ) LIKE N'${env.sql.database.name}' ) 
+           BEGIN 
+             DECLARE @dat_01_name NVARCHAR(260) = N'${global.database.datafile.name}'; 
+             DECLARE @log_01_name NVARCHAR(260) = N'${global.database.logfile.name}_log'; 
+             DECLARE @dat_01_path NVARCHAR(260) = N'${global.paths.database.base.folder}\${global.database.datafile.name}.mdf'; 
+             DECLARE @log_01_path NVARCHAR(260) = N'${global.paths.database.base.folder}\${global.database.logfile.name}.ldf'; 
+             EXECUTE( N'CREATE DATABASE [${env.sql.database.name}] ON 
+               ( NAME = ''' + @dat_01_name + ''', FILENAME = ''' + @dat_01_path + ''', SIZE = ${env.database.mdf.defaultsize} MB, FILEGROWTH = ${env.database.mdf.growth} MB ) 
+               LOG ON ( NAME = ''' + @log_01_name + ''', FILENAME = ''' + @log_01_path + ''', SIZE = ${env.database.ldf.defaultsize} MB, FILEGROWTH = ${env.database.ldf.growth} MB ) 
+               COLLATE Latin1_General_CI_AS' ); 
+           END;" />
+    </exec>
+  </target>
+
+  <target name="database.recreate.schema" depends="database.create.stub, database.compile.package" >
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.recreate.schema
+      Output: Creates database objects
+      ---------------------------------------------------------------------------
+    </description>
+
+    <fail message="Package file cannot be found (${paths.database.DAC.package})" unless="${file::exists(paths.database.DAC.package)}" />
+
+    <exec program="${tools.sqlpackage.exe}">
+      <arg value="/Action:Publish" />
+      <arg value="/SourceFile:${paths.database.DAC.package}" />
+      <arg value="/TargetConnectionString:${env.sql.connectionstrings.database}" />
+    </exec>
+  </target>
+
+  <target name="database.compile.data.generator.project" depends="configuration.init.datagenerator.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.compile.data.generator.project
+      Output: Compiles SkillTracker.DataGenerator project.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <fail message="Project file cannot be found (${paths.datagenerator.project.file})" unless="${file::exists(paths.datagenerator.project.file)}" />
+
+    <exec program="${env.msbuild.exe}">
+      <arg value="${paths.datagenerator.project.file}" />
+      <arg value="/t:Build" />
+      <arg value="/p:Configuration=Debug" />
+    </exec>
+
+  </target>
+
+  <target name="database.execute.data.generator" depends="database.compile.data.generator.project, configuration.init.datagenerator.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.execute.data.generator
+      Output: Executed compiled SkillTracker.DataGenerator project.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <exec program="${global.paths.datagenerator.project}\bin\SkillTracker.DataGenerator.exe">
+
+    </exec>
+
+  </target>
+
+  <target name="database.generate.data" depends="database.compile.data.generator.project, database.execute.data.generator">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.generate.data
+      Output: Fills database with data (compiles the DataGenerator project and runs it)
+      ---------------------------------------------------------------------------
+    </description>
+
+  </target>
+
+  <target name="database.init" depends="database.recreate.schema" >
+  </target>
+
+  <target name="database.cleanup" depends="database.detach, database.remove.database.files">
+    
+  </target>
+
+  <target name="database.detach">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.detach
+      Output: Detaches the database.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <exec program="sqlcmd" commandline='${env.sql.sqlcmd} -i "${tools.sql.detach.script}" -v databasename="${env.sql.database.name}"' failonerror="false"/>
+  </target>
+
+  <target name="database.remove.database.files">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.remove.database.files
+      Output: Removes the database files.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <echo message="Removing database files from directory: ${global.paths.database.base.folder}"/>
+
+    <delete file="${global.paths.database.base.folder}\${global.database.datafile.name}.mdf" failonerror="false" />
+    <delete file="${global.paths.database.base.folder}\${global.database.logfile.name}.ldf" failonerror="false"/>
+  </target>
+</project>

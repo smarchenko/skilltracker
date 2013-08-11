@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<project name="skilltracker">
+  <description>
+    ---------------------------------------------------------------------------
+    Skill Tracker Configuration script
+
+    Contains targets for patching project configuration files.
+    ---------------------------------------------------------------------------
+  </description>
+
+  <target name="configuration.init.datagenerator.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: configuration.init.datagenerator.project.connection.strings
+      Output: Updated all necessary connection strings for SkillTracker.DataGenerator project.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <echo message="Patching connection string for SkillTracker.DataGenerator project..."/>
+    <xmlpoke
+      file="${global.paths.datagenerator.project}\App.config"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
+      value="${env.sql.connectionstrings.database}" />
+    <echo message="Done."/>
+    
+  </target>
+
+  <target name="configuration.init.project.connection.strings" depends="configuration.init.datagenerator.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: configuration.update.project.connection.strings
+      Output: Updated all necessary connection strings
+      in configuration files through all necessary projects.
+
+      Usually used for initialization sandbox.
+      ---------------------------------------------------------------------------
+    </description>
+
+  </target>
+
+</project>

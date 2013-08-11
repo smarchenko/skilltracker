@@ -1,0 +1,40 @@
+﻿<?xml version="1.0"?>
+<project name="skilltracker">
+  <!-- properties -->
+  <property name="global.self.path" value="${directory::get-parent-directory(project::get-buildfile-path())}"/>
+  <property name="global.paths.root" value="${directory::get-parent-directory(global.self.path)}" unless="${property::exists('root.path')}"/>
+  <property name="global.paths.source.folder" value="${global.paths.root}\code"/>
+  <property name="global.paths.tools" value="${global.self.path}\Tools" overwrite="false"/>
+  
+
+  <!-- SQL Server -->
+  <property name="env.sql.server" value=".\SQLEXPRESS" dynamic="true"/>
+  <property name="env.sql.security" value="integrated security=true"/>
+  <property name="env.sql.sqlcmd" value="-S ${env.sql.server} -E" dynamic="true"/>
+  <property name="env.sql.connection.pattern" value="data source=${env.sql.server};${env.sql.security}" dynamic="true"/>
+  <property name="env.sql.database.name" value="SkillTracker"/>
+  <property name="env.sql.connectionstrings.database" value="${env.sql.connection.pattern};initial catalog=${env.sql.database.name}" dynamic="true"/>
+  <property name="env.sql.database.timeout" value="120" />
+  
+  <property name="global.paths.database.base.folder" value="${global.paths.root}\database"/>
+  <property name="global.database.datafile.name" value="SkillTracker"/>
+  <property name="global.database.logfile.name" value="SkillTracker"/>
+
+  <property name="global.paths.datagenerator.project" value="${global.paths.source.folder}\SkillTracker.DataGenerator"/>
+
+  <!-- Default MDF file size -->
+  <property name="env.database.mdf.defaultsize" value="128" />
+  <property name="env.database.mdf.growth" value="128" />
+
+  <!-- Default LDF file size -->
+  <property name="env.database.ldf.defaultsize" value="128" />
+  <property name="env.database.ldf.growth" value="128" />
+
+
+  <!-- MSBUILD -->
+  <property name="env.paths.msbuild" value="${framework::get-framework-directory(framework::get-target-framework())}"/>
+  <property name="env.msbuild.exe" value="${env.paths.msbuild}\msbuild.exe"/>
+
+  <!-- Extended include -->
+  <include buildfile="Environment.local.include" if="${file::exists('Environment.local.include')}"/>
+</project>

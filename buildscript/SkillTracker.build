@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<project name="skilltracker" default="autobuild">
+  <!-- Environment -->
+  <include buildfile="Environment.include"/>
+
+  <!-- nant -->
+  <include buildfile="nant/database.include"/>
+  <include buildfile="nant/configuration.include"/>
+
+  <target name="autobuild">
+
+  </target>
+
+  <target name="init.sandbox" depends="cleanup">
+    <call target="configuration.init.project.connection.strings"/>
+    <call target="initialize.database"/>
+  </target>
+
+  <target name="initialize.database">
+    <call target="database.init"/>
+    <call target="database.generate.data"/>
+  </target>
+
+  <target name="test">
+
+  </target>
+
+  
+  <target name="cleanup">
+    <call target="database.cleanup"/>
+  </target>
+  
+</project>

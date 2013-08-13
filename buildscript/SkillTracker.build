@@ -7,9 +7,14 @@
   <include buildfile="nant/database.include"/>
   <include buildfile="nant/configuration.include"/>
 
-  <target name="autobuild">
+  <target name="autobuild" depends="cleanup, configuration.init.project.connection.strings, initialize.database">
 
   </target>
+
+  <target name="cruise" depends="cleanup, configuration.init.project.connection.strings, initialize.database">
+
+  </target>
+
 
   <target name="init.sandbox" depends="cleanup">
     <call target="configuration.init.project.connection.strings"/>

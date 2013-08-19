@@ -1,0 +1,116 @@
+.header-logged-out
+{
+	padding: 15px 0;
+}
+
+header{
+	text-shadow: 0 1px 0 #fff;
+	border-bottom: 1px solid #e5e5e5;
+	min-width: 1000px;
+}
+
+div{
+  display:block;
+}
+
+body {
+  color: #333333;
+}
+
+body, input, select, textarea, button {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+  line-height: 1.4;
+}
+
+header nav{
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+ul, ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.header-logo {
+  position: relative;
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+  color: #333333;
+  transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in 0;
+}
+
+.header-logo .skilltracker-logo-container {
+  font-size: 32px;
+  font: normal normal 32px octicons;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  background-image: url('../images/skilltrackerlogo.jpg');
+  width:154px;
+  height:36px;
+}
+
+.command-bar {
+  position: relative;
+  float: left;
+  margin-top: 6px;
+}
+
+.header-logged-out .command-bar {
+  width: 626px;
+  margin-top: 3px;
+  margin-left: 15px;
+}
+
+.header-logged-out .command-bar .top-nav {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.2s linear 0;
+  opacity: 1;
+  z-index: 1;
+  margin-top: 0px;
+  margin-right: 0;
+  right: 0;
+}
+
+.top-nav {
+  float: left;
+  list-style: none;
+}
+
+.top-nav>li {
+  float: left;
+}
+
+.top-nav>li>a {
+  display: block;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in 0;
+}

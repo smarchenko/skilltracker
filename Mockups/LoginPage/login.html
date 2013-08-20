@@ -10,24 +10,46 @@
   </head>
   <body>
     <header class="header-logged-out">
-      <nav class="clearfix">
-        <a href="/" class="header-logo"><span class="skilltracker-logo-container"/></a>
+      <nav class="clear-fix">
+        <a href="#" onclick="javascript:alert('navigate to about page (just frontpage)');" class="header-logo"><span class="skilltracker-logo-container"/></a>
         <div class="command-bar">
           <ul class="top-nav">
-            <li><a href="/statistics" title="See overall site statistics" class="header-action">Statistics</a></li>
-            <li><a href="/register" title="Register a new user" class="header-action">Register</a></li>
+            <li><a href="#" onclick="javascript:alert('link to statistics page here.')" title="See overall site statistics" class="header-action">Statistics</a></li>
+            <li><a href="#" onclick="javascript:alert('link to register new user page here.')" title="Register a new user" class="header-action">Register</a></li>
           </ul>
         </div>
       </nav>
     </header>
-    <div id="main">
-    Login mockup here
+    <div id="site clear-fix">
+      <div class="auth-form-container">
+        <div class="auth-form">
+          <div class="auth-form-header">
+            <h1>Sign in</h1>
+          </div>
+          <div class="auth-form-body">
+            <label for="login_field">Username or Email</label>
+            <input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text">
+
+            <label for="password">Password <a href="#" onclick="javascript:alert('link to password recovery page here.')">(forgot password)</a></label>
+            <input class="input-block" id="password" name="password" tabindex="2" type="password">
+            <input class="button" name="commit" tabindex="3" type="submit" value="Sign in">
+          </div>
+        </div>
+      </div>
     </div>
-    <footer>
-      <section id="copyright">
-      </section>
-      <section id="authors">
-      </section>
-    </footer>
+    <div class="container">
+      <footer class="site-footer">
+        <section id="copyright">
+          <ul class="site-footer-links">
+            <li>© 2013 <span>SkillTracker team</span>.</li>
+          </ul>
+        </section>
+        <nav>
+          <ul class="site-footer-links right">
+            <li><a href="#" onclick="javascript:alert('link to about page here.')">About</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
   </body>
 </html>

@@ -126,6 +126,18 @@
     <Build Include="dbo\Stored Procedures\aspnet_PersonalizationAdministration_GetCountOfState.sql" />
     <Build Include="dbo\Stored Procedures\aspnet_WebEvent_LogEvent.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="dbo\Tables\Quarter.sql" />
+    <Build Include="dbo\Tables\SkillLevel.sql" />
+    <Build Include="dbo\Tables\Skill.sql" />
+    <Build Include="dbo\Tables\SkillGroup.sql" />
+    <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\Tables\Team.sql" />
+    <Build Include="dbo\Tables\UserTeam.sql" />
+    <Build Include="dbo\Tables\Position.sql" />
+    <Build Include="dbo\Tables\TeamPosition.sql" />
+    <Build Include="dbo\Tables\UserPosition.sql" />
+    <Build Include="dbo\Tables\PositionSkillGroup.sql" />
+    <Build Include="dbo\Tables\TeamSkillGroup.sql" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SkillTracker\Properties\AssemblyVersionInfo.cs">

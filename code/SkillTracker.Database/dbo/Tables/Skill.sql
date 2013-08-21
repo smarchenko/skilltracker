@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Skill]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+	[GroupId] UNIQUEIDENTIFIER NOT NULL, 
+    [Name] NVARCHAR(200) NOT NULL, 
+    [Description] NVARCHAR(500) NULL
+
+	CONSTRAINT [FK_Skill_SkillGroup] FOREIGN KEY ([GroupId]) REFERENCES dbo.SkillGroup([Id]),
+    CONSTRAINT [PK_Skill] PRIMARY KEY (Id),
+	CONSTRAINT [IX_Skill] UNIQUE (Id)
+)

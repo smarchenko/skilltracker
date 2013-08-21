@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Department]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL, 
+    [Name] NVARCHAR(200) NOT NULL, 
+    [Description] NVARCHAR(500) NULL
+
+	CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED (Id),
+)

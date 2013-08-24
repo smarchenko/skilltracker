@@ -9,21 +9,30 @@
     <!endif-->
   </head>
   <body>
-    <header class="header-logged-out">
+    <header class="header header-logged-in">
       <section id="top-navigation-menu">
-        <nav class="clear-fix">
-          <a href="#" onclick="javascript:alert('navigate to about page (just frontpage)');" class="header-logo"><span class="skilltracker-logo-container"/></a>
+        <nav class="container clear-fix">
+          <a href="#" onclick="javascript:alert('navigate to about page (just frontpage)');" class="header-logo-logged-in"><span class="skilltracker-logo-container"/></a>
+          <div class="divider-vertical"></div>
+          <div class="command-bar find-member">
+            <form accept-charset="UTF-8" action="no-action-for-now" class="command-bar-form" id="top_search_form" method="get">
+              <input type="text" data-hotkey="/ s" name="q" id="command-bar-field" placeholder="type a name or email" tabindex="1" autocapitalize="off">
+              <span class="find-member-text-container minibutton">
+                <span class="js-select-button">Find a person</span>
+              </span>
+            </form>
+          </div>
           <div class="command-bar">
             <ul class="top-nav">
               <li><a href="#" onclick="javascript:alert('link to statistics page here.')" title="See overall site statistics" class="header-action">Statistics</a></li>
-              <li><a href="#" onclick="javascript:alert('link to register new user page here.')" title="Register a new user" class="header-action">Register</a></li>
+              <li><a href="#" onclick="javascript:alert('link to reports page here or show menu.')" title="View reports" class="header-action">Reports</a></li>
             </ul>
           </div>
         </nav>
       </section>
     </header>
     <div id="site clear-fix">
-Under construction!...
+      
     </div>
     <div class="container">
       <footer class="site-footer">

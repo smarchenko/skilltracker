@@ -18,6 +18,9 @@
   <fail message="MsBuild.exe was not found (${env.msbuild.exe})" unless="${file::exists( env.msbuild.exe )}"/>
   <property name="paths.database.project" value="${global.paths.source.folder}\SkillTracker.Database"/>
   <property name="paths.datagenerator.project" value="${global.paths.source.folder}\SkillTracker.DataGenerator"/>
+  <property name="paths.data.project" value="${global.paths.source.folder}\SkillTracker.Data\SkillTracker.Data"/>
+  
+  <property name="paths.data.project.file" value="${global.paths.data.project}\SkillTracker.Data.csproj"/>
   <property name="paths.datagenerator.project.file" value="${global.paths.datagenerator.project}\SkillTracker.DataGenerator.csproj"/>
   <property name="paths.database.project.file" value="${paths.database.project}\SkillTracker.Database.sqlproj"/>
   <property name="paths.database.DAC.package" value="${paths.database.project}\bin\Release\SkillTracker.Database.dacpac"/>
@@ -103,6 +106,24 @@
 
     <exec program="${env.msbuild.exe}">
       <arg value="${paths.datagenerator.project.file}" />
+      <arg value="/t:Build" />
+      <arg value="/p:Configuration=Debug" />
+    </exec>
+
+  </target>
+
+  <target name="database.compile.data.project" depends="configuration.init.data.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: database.compile.data.project
+      Output: Compiles SkillTracker.Data project.
+      ---------------------------------------------------------------------------
+    </description>
+
+    <fail message="Project file cannot be found (${paths.data.project.file})" unless="${file::exists(paths.data.project.file)}" />
+
+    <exec program="${env.msbuild.exe}">
+      <arg value="${paths.data.project.file}" />
       <arg value="/t:Build" />
       <arg value="/p:Configuration=Debug" />
     </exec>

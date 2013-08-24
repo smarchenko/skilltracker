@@ -24,8 +24,24 @@
     <echo message="Done."/>
     
   </target>
+  <target name="configuration.init.data.project.connection.strings">
+    <description>
+      ---------------------------------------------------------------------------
+      Target: configuration.init.data.project.connection.strings
+      Output: Updated all necessary connection strings for SkillTracker.Data project.
+      ---------------------------------------------------------------------------
+    </description>
 
-  <target name="configuration.init.project.connection.strings" depends="configuration.init.datagenerator.project.connection.strings">
+    <echo message="Patching connection string for SkillTracker.Data project..."/>
+    <xmlpoke
+      file="${global.paths.data.project}\App.config"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
+      value="${env.sql.connectionstrings.database}" />
+    <echo message="Done."/>
+
+  </target>
+
+  <target name="configuration.init.project.connection.strings" depends="configuration.init.data.project.connection.strings,configuration.init.datagenerator.project.connection.strings">
     <description>
       ---------------------------------------------------------------------------
       Target: configuration.update.project.connection.strings

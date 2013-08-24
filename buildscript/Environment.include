@@ -21,6 +21,7 @@
   <property name="global.database.logfile.name" value="SkillTracker"/>
 
   <property name="global.paths.datagenerator.project" value="${global.paths.source.folder}\SkillTracker.DataGenerator"/>
+  <property name="global.paths.data.project" value="${global.paths.source.folder}\SkillTracker.Data\SkillTracker.Data"/>
 
   <!-- Default MDF file size -->
   <property name="env.database.mdf.defaultsize" value="128" />

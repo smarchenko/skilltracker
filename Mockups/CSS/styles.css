@@ -3,6 +3,15 @@
 	padding: 15px 0;
 }
 
+img {
+  border: 0;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
 header{
 	text-shadow: 0 1px 0 #fff;
 	border-bottom: 1px solid #e5e5e5;
@@ -92,6 +101,11 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 
 .button, .minibutton {
   outline: none;
+}
+
+.minibutton.no-options
+{
+  cursor: default;
 }
 
 .input-block {
@@ -469,6 +483,50 @@ label {
   opacity: 0.6;
   text-decoration: none;
   margin-top: 1px;
+}
+
+/* ------------------------  top user menu ---------------------------*/
+.command-bar.user-links
+{
+ float: right;
+}
+
+div.command-bar.user-links ul
+{
+  list-style: none;
+}
+
+div.command-bar.user-links ul>li {
+  position: relative;
+  float: left;
+  margin-left: 5px;
+}
+
+div.command-bar.user-links .user-link-text {
+  font-weight: bold;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+div.command-bar.user-links ul>li>a {
+  display: block;
+  padding: 5px;
+  font-size: 13px;
+  color: #333333;
+  transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in 0;
+}
+
+div.command-bar.user-links .user-link-text img {
+  float: left;
+  margin: -2px 5px 0 0;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #fff;
+}
+
+.log-out-image
+{
+  background-image: url('..\images\small\account_logout.jpg');
 }
 
 /*--------------------------------  Authentication styles  -------------------------------------*/

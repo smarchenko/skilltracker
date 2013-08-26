@@ -35,7 +35,7 @@
     <echo message="Patching connection string for SkillTracker.Data project..."/>
     <xmlpoke
       file="${global.paths.data.project}\App.config"
-      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerContext']/@connectionString"
       value="${env.sql.connectionstrings.database}" />
     <echo message="Done."/>
 

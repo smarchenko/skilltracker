@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0357c12ccfad4679b2aedb61689cb82c" Name="Diagram1">
+        <EntityTypeShape EntityType="SkillTrackerModel.Department" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.Position" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.PositionSkillGroup" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.Quarter" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.Skill" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.SkillGroup" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.SkillLevel" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.Team" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.TeamPosition" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.TeamSkillGroup" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.UserPosition" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkillTrackerModel.UserTeam" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="SkillTrackerModel.FK_Team_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_PositionSkillGroup_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_TeamPosition_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_UserPosition_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_PositionSkillGroup_SkillGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_SkillLevel_Quarter" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_Skill_SkillGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_SkillLevel_Skill" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_TeamSkillGroup_SkillGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_TeamPosition_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_TeamSkillGroup_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="SkillTrackerModel.FK_UserTeam_Team" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

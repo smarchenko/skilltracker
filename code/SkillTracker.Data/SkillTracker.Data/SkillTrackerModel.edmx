@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SkillTrackerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SkillTrackerModelStoreContainer">
+          <EntitySet Name="Department" EntityType="SkillTrackerModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Position" EntityType="SkillTrackerModel.Store.Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PositionSkillGroup" EntityType="SkillTrackerModel.Store.PositionSkillGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Quarter" EntityType="SkillTrackerModel.Store.Quarter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Skill" EntityType="SkillTrackerModel.Store.Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkillGroup" EntityType="SkillTrackerModel.Store.SkillGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkillLevel" EntityType="SkillTrackerModel.Store.SkillLevel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="SkillTrackerModel.Store.Team" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamPosition" EntityType="SkillTrackerModel.Store.TeamPosition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamSkillGroup" EntityType="SkillTrackerModel.Store.TeamSkillGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPosition" EntityType="SkillTrackerModel.Store.UserPosition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserTeam" EntityType="SkillTrackerModel.Store.UserTeam" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PositionSkillGroup_Position" Association="SkillTrackerModel.Store.FK_PositionSkillGroup_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="PositionSkillGroup" EntitySet="PositionSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionSkillGroup_SkillGroup" Association="SkillTrackerModel.Store.FK_PositionSkillGroup_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="PositionSkillGroup" EntitySet="PositionSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_SkillGroup" Association="SkillTrackerModel.Store.FK_Skill_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillLevel_Quarter" Association="SkillTrackerModel.Store.FK_SkillLevel_Quarter">
+            <End Role="Quarter" EntitySet="Quarter" />
+            <End Role="SkillLevel" EntitySet="SkillLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillLevel_Skill" Association="SkillTrackerModel.Store.FK_SkillLevel_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="SkillLevel" EntitySet="SkillLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Department" Association="SkillTrackerModel.Store.FK_Team_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPosition_Position" Association="SkillTrackerModel.Store.FK_TeamPosition_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="TeamPosition" EntitySet="TeamPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPosition_Team" Association="SkillTrackerModel.Store.FK_TeamPosition_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamPosition" EntitySet="TeamPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamSkillGroup_SkillGroup" Association="SkillTrackerModel.Store.FK_TeamSkillGroup_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="TeamSkillGroup" EntitySet="TeamSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamSkillGroup_Team" Association="SkillTrackerModel.Store.FK_TeamSkillGroup_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamSkillGroup" EntitySet="TeamSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPosition_Position" Association="SkillTrackerModel.Store.FK_UserPosition_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="UserPosition" EntitySet="UserPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTeam_Team" Association="SkillTrackerModel.Store.FK_UserTeam_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="UserTeam" EntitySet="UserTeam" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PositionSkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PositionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SkillLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Mark" Type="int" Nullable="false" />
+          <Property Name="QuarterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SkillId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="DepartmentId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PositionId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamSkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PositionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PositionSkillGroup_Position">
+          <End Role="Position" Type="SkillTrackerModel.Store.Position" Multiplicity="1" />
+          <End Role="PositionSkillGroup" Type="SkillTrackerModel.Store.PositionSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionSkillGroup">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionSkillGroup_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.Store.SkillGroup" Multiplicity="1" />
+          <End Role="PositionSkillGroup" Type="SkillTrackerModel.Store.PositionSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionSkillGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.Store.SkillGroup" Multiplicity="1" />
+          <End Role="Skill" Type="SkillTrackerModel.Store.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillLevel_Quarter">
+          <End Role="Quarter" Type="SkillTrackerModel.Store.Quarter" Multiplicity="1" />
+          <End Role="SkillLevel" Type="SkillTrackerModel.Store.SkillLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quarter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillLevel">
+              <PropertyRef Name="QuarterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillLevel_Skill">
+          <End Role="Skill" Type="SkillTrackerModel.Store.Skill" Multiplicity="1" />
+          <End Role="SkillLevel" Type="SkillTrackerModel.Store.SkillLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillLevel">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_Department">
+          <End Role="Department" Type="SkillTrackerModel.Store.Department" Multiplicity="1" />
+          <End Role="Team" Type="SkillTrackerModel.Store.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPosition_Position">
+          <End Role="Position" Type="SkillTrackerModel.Store.Position" Multiplicity="1" />
+          <End Role="TeamPosition" Type="SkillTrackerModel.Store.TeamPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPosition_Team">
+          <End Role="Team" Type="SkillTrackerModel.Store.Team" Multiplicity="1" />
+          <End Role="TeamPosition" Type="SkillTrackerModel.Store.TeamPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPosition">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamSkillGroup_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.Store.SkillGroup" Multiplicity="1" />
+          <End Role="TeamSkillGroup" Type="SkillTrackerModel.Store.TeamSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamSkillGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamSkillGroup_Team">
+          <End Role="Team" Type="SkillTrackerModel.Store.Team" Multiplicity="1" />
+          <End Role="TeamSkillGroup" Type="SkillTrackerModel.Store.TeamSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamSkillGroup">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPosition_Position">
+          <End Role="Position" Type="SkillTrackerModel.Store.Position" Multiplicity="1" />
+          <End Role="UserPosition" Type="SkillTrackerModel.Store.UserPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTeam_Team">
+          <End Role="Team" Type="SkillTrackerModel.Store.Team" Multiplicity="1" />
+          <End Role="UserTeam" Type="SkillTrackerModel.Store.UserTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTeam">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SkillTrackerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SkillTrackerContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Department" EntityType="SkillTrackerModel.Department" />
+          <EntitySet Name="Position" EntityType="SkillTrackerModel.Position" />
+          <EntitySet Name="PositionSkillGroup" EntityType="SkillTrackerModel.PositionSkillGroup" />
+          <EntitySet Name="Quarter" EntityType="SkillTrackerModel.Quarter" />
+          <EntitySet Name="Skill" EntityType="SkillTrackerModel.Skill" />
+          <EntitySet Name="SkillGroup" EntityType="SkillTrackerModel.SkillGroup" />
+          <EntitySet Name="SkillLevel" EntityType="SkillTrackerModel.SkillLevel" />
+          <EntitySet Name="Team" EntityType="SkillTrackerModel.Team" />
+          <EntitySet Name="TeamPosition" EntityType="SkillTrackerModel.TeamPosition" />
+          <EntitySet Name="TeamSkillGroup" EntityType="SkillTrackerModel.TeamSkillGroup" />
+          <EntitySet Name="UserPosition" EntityType="SkillTrackerModel.UserPosition" />
+          <EntitySet Name="UserTeam" EntityType="SkillTrackerModel.UserTeam" />
+          <AssociationSet Name="FK_Team_Department" Association="SkillTrackerModel.FK_Team_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionSkillGroup_Position" Association="SkillTrackerModel.FK_PositionSkillGroup_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="PositionSkillGroup" EntitySet="PositionSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPosition_Position" Association="SkillTrackerModel.FK_TeamPosition_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="TeamPosition" EntitySet="TeamPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPosition_Position" Association="SkillTrackerModel.FK_UserPosition_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="UserPosition" EntitySet="UserPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionSkillGroup_SkillGroup" Association="SkillTrackerModel.FK_PositionSkillGroup_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="PositionSkillGroup" EntitySet="PositionSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillLevel_Quarter" Association="SkillTrackerModel.FK_SkillLevel_Quarter">
+            <End Role="Quarter" EntitySet="Quarter" />
+            <End Role="SkillLevel" EntitySet="SkillLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_SkillGroup" Association="SkillTrackerModel.FK_Skill_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillLevel_Skill" Association="SkillTrackerModel.FK_SkillLevel_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="SkillLevel" EntitySet="SkillLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamSkillGroup_SkillGroup" Association="SkillTrackerModel.FK_TeamSkillGroup_SkillGroup">
+            <End Role="SkillGroup" EntitySet="SkillGroup" />
+            <End Role="TeamSkillGroup" EntitySet="TeamSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPosition_Team" Association="SkillTrackerModel.FK_TeamPosition_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamPosition" EntitySet="TeamPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamSkillGroup_Team" Association="SkillTrackerModel.FK_TeamSkillGroup_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamSkillGroup" EntitySet="TeamSkillGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTeam_Team" Association="SkillTrackerModel.FK_UserTeam_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="UserTeam" EntitySet="UserTeam" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Team" Relationship="SkillTrackerModel.FK_Team_Department" FromRole="Department" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PositionSkillGroup" Relationship="SkillTrackerModel.FK_PositionSkillGroup_Position" FromRole="Position" ToRole="PositionSkillGroup" />
+          <NavigationProperty Name="TeamPosition" Relationship="SkillTrackerModel.FK_TeamPosition_Position" FromRole="Position" ToRole="TeamPosition" />
+          <NavigationProperty Name="UserPosition" Relationship="SkillTrackerModel.FK_UserPosition_Position" FromRole="Position" ToRole="UserPosition" />
+        </EntityType>
+        <EntityType Name="PositionSkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PositionId" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="SkillTrackerModel.FK_PositionSkillGroup_Position" FromRole="PositionSkillGroup" ToRole="Position" />
+          <NavigationProperty Name="SkillGroup" Relationship="SkillTrackerModel.FK_PositionSkillGroup_SkillGroup" FromRole="PositionSkillGroup" ToRole="SkillGroup" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SkillLevel" Relationship="SkillTrackerModel.FK_SkillLevel_Quarter" FromRole="Quarter" ToRole="SkillLevel" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SkillGroup" Relationship="SkillTrackerModel.FK_Skill_SkillGroup" FromRole="Skill" ToRole="SkillGroup" />
+          <NavigationProperty Name="SkillLevel" Relationship="SkillTrackerModel.FK_SkillLevel_Skill" FromRole="Skill" ToRole="SkillLevel" />
+        </EntityType>
+        <EntityType Name="SkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PositionSkillGroup" Relationship="SkillTrackerModel.FK_PositionSkillGroup_SkillGroup" FromRole="SkillGroup" ToRole="PositionSkillGroup" />
+          <NavigationProperty Name="Skill" Relationship="SkillTrackerModel.FK_Skill_SkillGroup" FromRole="SkillGroup" ToRole="Skill" />
+          <NavigationProperty Name="TeamSkillGroup" Relationship="SkillTrackerModel.FK_TeamSkillGroup_SkillGroup" FromRole="SkillGroup" ToRole="TeamSkillGroup" />
+        </EntityType>
+        <EntityType Name="SkillLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Mark" Type="Int32" Nullable="false" />
+          <Property Name="QuarterId" Type="Guid" Nullable="false" />
+          <Property Name="SkillId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Quarter" Relationship="SkillTrackerModel.FK_SkillLevel_Quarter" FromRole="SkillLevel" ToRole="Quarter" />
+          <NavigationProperty Name="Skill" Relationship="SkillTrackerModel.FK_SkillLevel_Skill" FromRole="SkillLevel" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DepartmentId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="SkillTrackerModel.FK_Team_Department" FromRole="Team" ToRole="Department" />
+          <NavigationProperty Name="TeamPosition" Relationship="SkillTrackerModel.FK_TeamPosition_Team" FromRole="Team" ToRole="TeamPosition" />
+          <NavigationProperty Name="TeamSkillGroup" Relationship="SkillTrackerModel.FK_TeamSkillGroup_Team" FromRole="Team" ToRole="TeamSkillGroup" />
+          <NavigationProperty Name="UserTeam" Relationship="SkillTrackerModel.FK_UserTeam_Team" FromRole="Team" ToRole="UserTeam" />
+        </EntityType>
+        <EntityType Name="TeamPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TeamId" Type="Guid" Nullable="false" />
+          <Property Name="PositionId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="SkillTrackerModel.FK_TeamPosition_Position" FromRole="TeamPosition" ToRole="Position" />
+          <NavigationProperty Name="Team" Relationship="SkillTrackerModel.FK_TeamPosition_Team" FromRole="TeamPosition" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="TeamSkillGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TeamId" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="SkillGroup" Relationship="SkillTrackerModel.FK_TeamSkillGroup_SkillGroup" FromRole="TeamSkillGroup" ToRole="SkillGroup" />
+          <NavigationProperty Name="Team" Relationship="SkillTrackerModel.FK_TeamSkillGroup_Team" FromRole="TeamSkillGroup" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="UserPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PositionId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="SkillTrackerModel.FK_UserPosition_Position" FromRole="UserPosition" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="UserTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TeamId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="SkillTrackerModel.FK_UserTeam_Team" FromRole="UserTeam" ToRole="Team" />
+        </EntityType>
+        <Association Name="FK_Team_Department">
+          <End Role="Department" Type="SkillTrackerModel.Department" Multiplicity="1" />
+          <End Role="Team" Type="SkillTrackerModel.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionSkillGroup_Position">
+          <End Role="Position" Type="SkillTrackerModel.Position" Multiplicity="1" />
+          <End Role="PositionSkillGroup" Type="SkillTrackerModel.PositionSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionSkillGroup">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPosition_Position">
+          <End Role="Position" Type="SkillTrackerModel.Position" Multiplicity="1" />
+          <End Role="TeamPosition" Type="SkillTrackerModel.TeamPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPosition_Position">
+          <End Role="Position" Type="SkillTrackerModel.Position" Multiplicity="1" />
+          <End Role="UserPosition" Type="SkillTrackerModel.UserPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionSkillGroup_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.SkillGroup" Multiplicity="1" />
+          <End Role="PositionSkillGroup" Type="SkillTrackerModel.PositionSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionSkillGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillLevel_Quarter">
+          <End Role="Quarter" Type="SkillTrackerModel.Quarter" Multiplicity="1" />
+          <End Role="SkillLevel" Type="SkillTrackerModel.SkillLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quarter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillLevel">
+              <PropertyRef Name="QuarterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.SkillGroup" Multiplicity="1" />
+          <End Role="Skill" Type="SkillTrackerModel.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillLevel_Skill">
+          <End Role="Skill" Type="SkillTrackerModel.Skill" Multiplicity="1" />
+          <End Role="SkillLevel" Type="SkillTrackerModel.SkillLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillLevel">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamSkillGroup_SkillGroup">
+          <End Role="SkillGroup" Type="SkillTrackerModel.SkillGroup" Multiplicity="1" />
+          <End Role="TeamSkillGroup" Type="SkillTrackerModel.TeamSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamSkillGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPosition_Team">
+          <End Role="Team" Type="SkillTrackerModel.Team" Multiplicity="1" />
+          <End Role="TeamPosition" Type="SkillTrackerModel.TeamPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPosition">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamSkillGroup_Team">
+          <End Role="Team" Type="SkillTrackerModel.Team" Multiplicity="1" />
+          <End Role="TeamSkillGroup" Type="SkillTrackerModel.TeamSkillGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamSkillGroup">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTeam_Team">
+          <End Role="Team" Type="SkillTrackerModel.Team" Multiplicity="1" />
+          <End Role="UserTeam" Type="SkillTrackerModel.UserTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTeam">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SkillTrackerModelStoreContainer" CdmEntityContainer="SkillTrackerContext">
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="SkillTrackerModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="SkillTrackerModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PositionSkillGroup">
+            <EntityTypeMapping TypeName="SkillTrackerModel.PositionSkillGroup">
+              <MappingFragment StoreEntitySet="PositionSkillGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quarter">
+            <EntityTypeMapping TypeName="SkillTrackerModel.Quarter">
+              <MappingFragment StoreEntitySet="Quarter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skill">
+            <EntityTypeMapping TypeName="SkillTrackerModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillGroup">
+            <EntityTypeMapping TypeName="SkillTrackerModel.SkillGroup">
+              <MappingFragment StoreEntitySet="SkillGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillLevel">
+            <EntityTypeMapping TypeName="SkillTrackerModel.SkillLevel">
+              <MappingFragment StoreEntitySet="SkillLevel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="QuarterId" ColumnName="QuarterId" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="SkillTrackerModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamPosition">
+            <EntityTypeMapping TypeName="SkillTrackerModel.TeamPosition">
+              <MappingFragment StoreEntitySet="TeamPosition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamSkillGroup">
+            <EntityTypeMapping TypeName="SkillTrackerModel.TeamSkillGroup">
+              <MappingFragment StoreEntitySet="TeamSkillGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPosition">
+            <EntityTypeMapping TypeName="SkillTrackerModel.UserPosition">
+              <MappingFragment StoreEntitySet="UserPosition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTeam">
+            <EntityTypeMapping TypeName="SkillTrackerModel.UserTeam">
+              <MappingFragment StoreEntitySet="UserTeam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

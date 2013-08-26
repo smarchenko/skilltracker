@@ -37,6 +37,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,11 +52,82 @@
     <Compile Include="..\..\SkillTracker\Properties\CompanyInfo.cs">
       <Link>CompanyInfo.cs</Link>
     </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionSkillGroup.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quarter.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillGroup.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillLevel.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillTrackerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkillTrackerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillTrackerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillTrackerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkillTrackerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamPosition.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamSkillGroup.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserPosition.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTeam.cs">
+      <DependentUpon>SkillTrackerModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="SkillTrackerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SkillTrackerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SkillTrackerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SkillTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>SkillTrackerModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SkillTrackerModel.edmx.diagram">
+      <DependentUpon>SkillTrackerModel.edmx</DependentUpon>
+    </None>
+    <None Include="SkillTrackerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SkillTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>SkillTrackerModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

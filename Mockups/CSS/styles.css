@@ -580,3 +580,75 @@ div.command-bar.user-links .user-link-text img {
   margin-bottom: 15px;
 }
 
+/*---------------------- site styles --------------------------*/
+.site-container {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+  min-height: 345px;
+}
+
+.site-container:before, .site-container:after {
+  content: " ";
+  display: table;
+}
+
+.site-container:after {
+  clear: both;
+}
+
+.skill-filters.sidebar {
+  float: left;
+  width: 220px;
+  padding: 0;
+  font-size: 12px;
+}
+
+section h1{
+  font-size: 14px;
+}
+
+ul.filter-list {
+  list-style-type: none;
+}
+
+.filter-list .filter-item {
+  font-size: 12px;
+}
+
+ul.filter-list .filter-item>a{
+  padding: 4px 10px;
+  margin: 0 0 2px 0;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+  margin: 0 0 5px 0;
+  font-size: 12px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+ul.color-label-list .color-label {
+  line-height: 16px;
+  border: 1px solid transparent;
+}
+
+ul.color-label-list .color-label .color.to-do
+{
+  background-color: #fc2929;
+}
+
+ul.filter-list .filter-item .count {
+  font-weight: bold;
+  float: right;
+}
+
+ul.color-label-list .count {
+  color: #333;
+}

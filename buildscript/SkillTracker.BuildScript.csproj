@@ -52,7 +52,9 @@
   <ItemGroup>
     <None Include="autobuild.bat" />
     <None Include="Environment.include" />
-    <None Include="Environment.local.include" />
+    <None Include="Environment.local.include">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="nant\configuration.include" />
     <None Include="nant\database.include" />
     <None Include="SkillTracker.build" />

@@ -633,14 +633,64 @@ ul.filter-list .filter-item>a{
   cursor: pointer;
 }
 
-ul.color-label-list .color-label {
+ul.filter-list .filter-item>a:hover {
+  background: #eee;
+}
+
+ul.color-label-list a.color-label {
   line-height: 16px;
   border: 1px solid transparent;
+  cursor: default;
+  font-size: 12px;
+  padding: 4px 10px;
+  margin: 0 0 2px 0;
+}
+
+ul.color-label-list .color-label .color{
+  display: block;
+  float: left;
+  margin-left: -5px;
+  margin-right: 4px;
+  width: 6px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}
+
+ul.color-label-list .color-label .octicon-remove-close{
+  display: none;
+  float: right;
+  opacity: 0.8;
 }
 
 ul.color-label-list .color-label .color.to-do
 {
   background-color: #fc2929;
+}
+
+ul.color-label-list .color-label .color.deteriorate
+{
+  background-color: #fc2929;
+}
+
+ul.color-label-list .color-label .color.completed
+{
+  background-color: #2AF73B;
+}
+
+ul.color-label-list .color-label .color.improved
+{
+  background-color: #2AF73B;
+}
+
+ul.color-label-list .color-label .color.recently
+{
+  background-color: #2CF4F4;
+}
+
+ul.color-label-list .color-label .color.unchanged
+{
+  background-color: #e6e6e6;
 }
 
 ul.filter-list .filter-item .count {
@@ -650,4 +700,14 @@ ul.filter-list .filter-item .count {
 
 ul.color-label-list .count {
   color: #333;
+}
+
+.sidebar-divider {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #ddd;
 }

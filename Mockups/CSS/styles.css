@@ -347,8 +347,7 @@ label {
 
 .command-bar.find-member .find-member-text-container.minibutton
 {
-  padding: 0;
-  margin-left:6px;
+  padding:0 0 0 6px;
 }
 
 .command-bar .command-bar-form {

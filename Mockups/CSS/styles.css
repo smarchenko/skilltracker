@@ -657,40 +657,40 @@ ul.color-label-list .color-label .color{
   border: 1px solid #fff;
 }
 
-ul.color-label-list .color-label .octicon-remove-close{
+ul.color-label-list .filter-item .octicon-remove-close{
   display: none;
   float: right;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-ul.color-label-list .color-label .color.to-do
-{
-  background-color: #fc2929;
+ul.color-label-list .color-label.to-do>span[class~="color"],ul.color-label-list .color-label.selected.to-do{
+  background-color: #BD2929;
+  color:white;
 }
 
-ul.color-label-list .color-label .color.deteriorate
-{
-  background-color: #fc2929;
+ul.color-label-list .color-label.deteriorate>span[class~="color"], ul.color-label-list .color-label.selected.deteriorate{
+  background-color: #BD2929;
+  color:white;
 }
 
-ul.color-label-list .color-label .color.completed
-{
-  background-color: #2AF73B;
+ul.color-label-list .color-label.completed>span[class~="color"], ul.color-label-list .color-label.selected.completed{
+  background-color: #2AB73B;
+  color: rgb(51, 51, 51);
 }
 
-ul.color-label-list .color-label .color.improved
-{
-  background-color: #2AF73B;
+ul.color-label-list .color-label.improved>span[class~="color"], ul.color-label-list .color-label.selected.improved{
+  background-color: #2AB73B;
+  color: rgb(51, 51, 51);
 }
 
-ul.color-label-list .color-label .color.recently
-{
-  background-color: #2CF4F4;
+ul.color-label-list .color-label.recently>span[class~="color"], ul.color-label-list .color-label.selected.recently{
+  background-color: #2CD2F4;
+  color: rgb(51, 51, 51);
 }
 
-ul.color-label-list .color-label .color.unchanged
-{
+ul.color-label-list .color-label.unchanged>span[class~="color"], ul.color-label-list .color-label.selected.unchanged{
   background-color: #e6e6e6;
+  color: rgb(51, 51, 51);
 }
 
 ul.filter-list .filter-item .count {
@@ -700,6 +700,29 @@ ul.filter-list .filter-item .count {
 
 ul.color-label-list .count {
   color: #333;
+}
+
+ul.color-label-list .color-label.selected {
+  font-weight: bold;
+  background: 98% 5px no-repeat transparent;
+  -webkit-font-smoothing: antialiased;
+  font-size: 12px;
+}
+
+ul.color-label-list .color-label.selected .count, ul.color-label-list .color-label.selected .color {
+  display: none;
+}
+
+ul.color-label-list .color-label.selected .octicon-remove-close {
+  display: inline-block;
+}
+
+.octicon-remove-close:before {
+  content: url('../images/small/close_icon13.png');
+}
+
+ul.color-label-list .color-label:hover .octicon-remove-close {
+  opacity: 1;
 }
 
 .sidebar-divider {

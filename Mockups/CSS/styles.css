@@ -646,6 +646,11 @@ ul.color-label-list a.color-label {
   margin: 0 0 2px 0;
 }
 
+ul.filter-list .filter-item.selected>a {
+  color: #fff;
+  background: #4183c4;
+}
+
 ul.color-label-list .color-label .color{
   display: block;
   float: left;
@@ -725,6 +730,19 @@ ul.color-label-list .color-label:hover .octicon-remove-close {
   opacity: 1;
 }
 
+.column {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 15px;
+}
+
+.column.main {
+  margin-left: 240px;
+  padding: 0;
+  float: none;
+}
+
 .sidebar-divider {
   clear: both;
   margin: 15px 0;
@@ -733,4 +751,11 @@ ul.color-label-list .color-label:hover .octicon-remove-close {
   border: none;
   background: transparent;
   border-bottom: 1px solid #ddd;
+}
+
+.skills-list{
+  margin: 10px 0;
+  padding: 3px;
+  background: #eee;
+  border-radius: 3px;
 }

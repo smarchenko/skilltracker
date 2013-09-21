@@ -586,6 +586,7 @@ div.command-bar.user-links .user-link-text img {
   margin-right: auto;
   padding: 0 10px;
   min-height: 345px;
+  padding-top: 15px;
 }
 
 .site-container:before, .site-container:after {
@@ -614,6 +615,12 @@ ul.filter-list {
 
 .filter-list .filter-item {
   font-size: 12px;
+}
+
+ul.filter-list .filter-item>a>div{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
 }
 
 ul.filter-list .filter-item>a{
@@ -790,6 +797,9 @@ ul.color-label-list .color-label:hover .octicon-remove-close {
   padding-left: 15px;
   max-width: 450px;
   color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .skills-list table.skills thead{

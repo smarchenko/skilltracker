@@ -12,11 +12,11 @@
     <header class="header header-logged-in">
       <section id="top-navigation-menu">
         <nav class="container clear-fix">
-          <a href="#" onclick="javascript:alert('navigate to about page (just frontpage)');" class="header-logo-logged-in"><span class="skilltracker-logo-container"/></a>
+          <a href="#" onclick="javascript:alert('navigate to about page (just frontpage)');" class="header-logo-logged-in"><span class="skilltracker-logo-container"></span></a>
           <div class="divider-vertical"></div>
           <div class="command-bar find-member">
             <form accept-charset="UTF-8" action="no-action-for-now" class="command-bar-form" id="top_search_form" method="get">
-              <input type="text" placeholder="type a name or email" tabindex="1" autocapitalize="off">
+              <input type="text" placeholder="type a name or email" tabindex="1">
               <span class="find-member-text-container minibutton no-options">
                 Find a person
               </span>
@@ -32,12 +32,12 @@
             <ul>
               <li>
                 <a href="#" onclick="javascript:alert('navigate to user profile page')" class="user-link-text" title="Profile">
-                  <img height="20" src="..\images\small\account_noimage24.png" width="20"> user_name
+                  <img height="20" src="..\images\small\account_noimage24.png" width="20" alt="user_name"> user_name
                 </a>
               </li>
               <li>
-                <a class="user-link-toolbutton" href="#" onclick="javascript:alert('log out');" aria-label="Sign out" title="Sign out" original-title="Sign out">
-                  <img height="20" src="..\images\small\account_logout24.png" width="20">
+                <a class="user-link-toolbutton" href="#" onclick="javascript:alert('log out');" aria-label="Sign out" title="Sign out">
+                  <img height="20" src="..\images\small\account_logout24.png" width="20" alt="Sign out">
                 </a>
               </li>
             </ul>
@@ -173,13 +173,23 @@
           </section>
         </div>
         <div class="column main">
-          <section class="clear-filters">
-            <p class="clear-skill-filters">
-              <a href="#" onclick="alert('Clear active filters.')">
-                <span class="octicon octicon-remove-close-black"></span>Clear active filters.
-              </a>
-            </p>
-          </section>
+          <div class="skill-list-header">
+            <section class="clear-filters">
+              <p class="clear-skill-filters">
+                <a href="#" onclick="javascript:alert('Clear active filters.')">
+                  <span class="octicon octicon-remove-close-black"></span>Clear active filters.
+                </a>
+              </p>
+            </section>
+            <section class="search-skills command-bar find-member">
+              <div class="command-bar-form" >
+                  <input type="search" placeholder="Type part of the skill name or category" tabindex="1">
+                  <span class="find-member-text-container minibutton no-options">
+                    Find skills
+                  </span>
+                </div>
+            </section>
+          </div>
           <section class="skills-list">
             <div class="bubble">
               <table class="skills">
@@ -199,21 +209,21 @@
                     <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars two-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>
@@ -222,21 +232,21 @@
                     <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars two-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>
@@ -245,21 +255,21 @@
                     <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars two-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>
@@ -271,21 +281,21 @@
                     <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars four-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>
@@ -294,21 +304,21 @@
                     <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars none-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   <tr class="competency">
@@ -316,21 +326,21 @@
                    <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars one-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>
@@ -339,21 +349,353 @@
                    <td class="quarter-mark-column current">
                       <span class="stars five-stars greyed-out">
                         <span class="stars three-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                     <td class="quarter-mark-column previous">
                       <span class="stars five-stars greyed-out">
                         <span class="stars one-stars highlighted"></span>
-                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" />
-                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" />
-                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" />
-                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" />
-                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" />
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency-group">
+                    <td class="competency-group-column" colspan="3" title="Contains Sitecore CMS skills">Sitecore</td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore architecture: API layers, core\UI pipelines, security, etc.">Architecture</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore Azure project details">Azure</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore caching strategy, working with cache, creating and registering own cache, crearing chache on events, etc.">Caching</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency-group">
+                    <td class="competency-group-column" colspan="3">Development</td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Ajax</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars four-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Data structure</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars none-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  <tr class="competency">
+                    <td class="competency-column">MVC</td>
+                   <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars one-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Some competency that has quite a long name with some additional and very important information that should be cut automatically</td>
+                   <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars one-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency-group">
+                    <td class="competency-group-column" colspan="3" title="Contains Sitecore CMS skills">Sitecore</td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore architecture: API layers, core\UI pipelines, security, etc.">Architecture</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore Azure project details">Azure</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column" title="Sitecore caching strategy, working with cache, creating and registering own cache, crearing chache on events, etc.">Caching</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars two-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars" ></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency-group">
+                    <td class="competency-group-column" colspan="3">Development</td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Ajax</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars" ></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars four-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Data structure</td>
+                    <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars" ></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars none-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                  <tr class="competency">
+                    <td class="competency-column">MVC</td>
+                   <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars" ></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars one-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="competency">
+                    <td class="competency-column">Some competency that has quite a long name with some additional and very important information that should be cut automatically</td>
+                   <td class="quarter-mark-column current">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars three-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars"></a>
+                      </span>
+                    </td>
+                    <td class="quarter-mark-column previous">
+                      <span class="stars five-stars greyed-out">
+                        <span class="stars one-stars highlighted"></span>
+                        <a onclick="alert('set Grandmaster value')" title="Grandmaster - knows and can do everything (feature owner or similar)." class="star-link five-stars"></a>
+                        <a onclick="alert('set Master value')" title="Master - knows evrythig about the feature." class="star-link four-stars"></a>
+                        <a onclick="alert('set Experienced value')" title="Experienced - have already worked and have a good understanding." class="star-link three-stars"></a>
+                        <a onclick="alert('set Rookie value')" title="Rookie - tried at some point but does not have enough experience." class="star-link two-stars"></a>
+                        <a onclick="alert('set Freshman value')" title="Freshman - knows almost nothing or just heared about this." class="star-link one-stars" ></a>
                       </span>
                     </td>
                   </tr>

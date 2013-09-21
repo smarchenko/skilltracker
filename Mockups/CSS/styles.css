@@ -48,11 +48,11 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
 }
 
-label, input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
+label, input[type="text"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], textarea {
   font-size: 13px;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
+input[type="text"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], textarea {
   min-height: 34px;
   padding: 7px 8px;
   outline: none;
@@ -140,12 +140,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
     cursor:default;box-shadow:none
 }
 
-input[type="text"].focus, input[type="text"]:focus, input[type="password"].focus, input[type="password"]:focus, input[type="email"].focus, input[type="email"]:focus, input[type="number"].focus, input[type="number"]:focus, input[type="tel"].focus, input[type="tel"]:focus, input[type="url"].focus, input[type="url"]:focus, textarea.focus, textarea:focus{
+input[type="text"].focus, input[type="search"].focus, input[type="text"]:focus, input[type="password"].focus, input[type="password"]:focus, input[type="email"].focus, input[type="email"]:focus, input[type="number"].focus, input[type="number"]:focus, input[type="tel"].focus, input[type="tel"]:focus, input[type="url"].focus, input[type="url"]:focus, textarea.focus, textarea:focus{
   border-color:#51a7e8;
   box-shadow:inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,0.5)
 }
 
-input[type="text"]:focus:invalid, input[type="email"]:focus:invalid, input[type="password"]:focus:invalid{
+input[type="text"]:focus:invalid, input[type="search"]:focus:invalid, input[type="email"]:focus:invalid, input[type="password"]:focus:invalid{
   border-color:#EFD0D0;
   box-shadow:inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(245,213,213,0.5)
 }
@@ -305,7 +305,7 @@ label {
   -webkit-transition: all 0.1s ease-in 0;
 }
 
-.command-bar input[type="text"] {
+.command-bar input[type="text"], .command-bar input[type="search"] {
   position: relative;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -317,7 +317,7 @@ label {
   -webkit-transition: all 0.2s ease-in-out 0;
 }
 
-.command-bar input[type="text"].focus, .command-bar input[type="text"]:focus {
+.command-bar input[type="text"].focus, .command-bar input[type="text"]:focus, .command-bar input[type="search"].focus, .command-bar input[type="search"]:focus {
   border-color:#51a7e8;
   box-shadow:inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,0.5)
 }
@@ -362,11 +362,11 @@ label {
   width: 340px;
 }
 
-.command-bar.find-member input[type="text"] {
+.command-bar.find-member input[type="text"], .command-bar.find-member input[type="search"] {
   padding-left: 123px;
 }
 
-.command-bar input[type="text"] {
+.command-bar input[type="text"], .command-bar input[type="search"] {
   border-color: #ddd;
   background: #fcfcfc;
   box-shadow: 1px 1px 0 #fff;
@@ -946,3 +946,36 @@ a.star-link:hover{
 .clear-skill-filters .octicon-remove-close-black:before{
   content: url('../images/small/close_icon_black12.png');
 }
+
+.clear-skill-filters{
+  height:18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*************************************** search box ****************************************/
+.search-skills.command-bar{
+  margin-top: 0;
+  position:static;
+  float:none;
+}
+
+.search-skills.command-bar input{
+  width:400px;
+  padding-right: 5px;
+}
+
+.skill-list-header{
+  height: 28px;
+}
+
+.skill-list-header .clear-filters{
+  float:left;
+}
+
+.skill-list-header .search-skills{
+  float:right;
+  margin-right: 60px;
+}
+
+

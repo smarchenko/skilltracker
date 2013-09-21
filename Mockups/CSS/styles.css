@@ -753,9 +753,158 @@ ul.color-label-list .color-label:hover .octicon-remove-close {
   border-bottom: 1px solid #ddd;
 }
 
+/*********************************** Skills table **************************************/
+
 .skills-list{
-  margin: 10px 0;
+  margin-top: 10px;
+}
+
+.skills-list .bubble {
   padding: 3px;
   background: #eee;
   border-radius: 3px;
+}
+
+.skills-list table.skills {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #d8d8d8;
+  border-top: none;
+  border-radius: 3px;
+  background: #f8f8f8;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.skills-list table.skills td, .skills-list table.skills th{
+  padding-left: 5px;
+  text-align: left;
+}
+
+.skills-list table.skills td.quarter-mark-column{
+  text-align: center;
+}
+
+.skills-list table.skills .competency td.competency-column{
+  padding-left: 15px;
+  max-width: 450px;
+  color: #888;
+}
+
+.skills-list table.skills thead{
+  border: 1px solid #d8d8d8;
+  background: #e6f1f6;
+  border-bottom-color: #d8e6ec;
+  padding: 8px 8px 0;
+}
+
+.skills-list table.skills thead td{
+  padding: 5px;
+}
+
+.skills-list .quarter-mark-column{
+  width: 100px;
+} 
+
+.column-main-header-text{
+  font-weight:bold;
+}
+
+.skills-list table.skills tbody td
+{
+  padding: 7px 5px;
+  border-top: 1px solid #eee;
+}
+
+.skills-list table.skills tbody tr.competency-group{
+  background-color:#fff;
+}
+
+/*********************************** Stars **************************************/
+
+.stars{
+  height: 13px;
+  background-size: 167px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-position: 0 0;
+  text-align: left;
+}
+
+.five-stars{
+  width: 69px;
+}
+
+.four-stars{
+  width: 54px;
+}
+
+.three-stars{
+  width: 41px;
+}
+
+.two-stars{
+  width: 28px;
+}
+
+.one-stars{
+  width: 15px;
+}
+
+.none-stars{
+  width: 0px;
+}
+
+.greyed-out{
+  top: 1px;
+  background: url(../images/small/stars.png) no-repeat 0px 0px;
+}
+
+.highlighted{
+  background: url(../images/small/stars.png) no-repeat 0px -16px;
+}
+
+a.star-link {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 1px;
+  height: 13px;
+}
+
+a.star-link:link, a.star-link:visited {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+a.star-link:hover{
+  background: url(../images/small/stars.png) no-repeat 0px -16px;
+}
+
+.skills-list table.skills tbody tr.competency:hover{
+  background-color: rgba(51, 51, 51, 0.05);
+}
+
+/*********************************** No Skills to show box **************************************/
+
+.no-skills p {
+  margin: 0;
+  padding: 30px 20px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+  background: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-skills a {
+  color: #4183c4;
+}
+
+.no-skills a:hover{
+  text-decoration: underline;
 }

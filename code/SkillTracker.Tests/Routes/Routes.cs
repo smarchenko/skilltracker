@@ -14,6 +14,8 @@ namespace SkillTracker.Tests.Routes
     [TestMethod]
     public void LoginRouteTest()
     {
+      TestRouteMatch("~/login", "Login", "Index");
+      TestRouteMatch("~/Login", "Login", "Index");
     }
 
     protected bool TestIncomingRouteResult(RouteData routeResult, string controller, string action,

@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Tests", "..\Sk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.BuildScript", "..\..\buildscript\SkillTracker.BuildScript.csproj", "{0E90649D-A317-4E54-80EE-B3382C9D1889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Data", "..\SkillTracker.Data\SkillTracker.Data\SkillTracker.Data.csproj", "{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Data", "..\SkillTracker.Data\SkillTracker.Data.csproj", "{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Web", "..\SkillTracker.Web\SkillTracker.Web\SkillTracker.Web.csproj", "{B7591D5C-D104-4C81-AA95-57538063E496}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Web", "..\SkillTracker.Web\SkillTracker.Web.csproj", "{B7591D5C-D104-4C81-AA95-57538063E496}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

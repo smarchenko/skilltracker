@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/code/SkillTracker.Web/obj/Debug
+/code/SkillTracker.Tests/obj/Debug
+/code/SkillTracker.Web/bin
+/code/SkillTracker.Tests/bin
+/code/SkillTracker.DataGenerator/obj/Debug
+/code/SkillTracker.DataGenerator/bin
+/code/SkillTracker.Database/obj
+/code/SkillTracker.Database/bin
+/code/SkillTracker.Data/bin
+/code/SkillTracker.Data/obj/Debug
+/buildscript/bin/Debug
+/buildscript/obj/Debug
+/code/SkillTracker/Backup
+/code/SkillTracker/packages
+/code/SkillTracker/_UpgradeReport_Files

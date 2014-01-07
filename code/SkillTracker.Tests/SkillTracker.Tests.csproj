@@ -47,6 +47,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -60,6 +61,7 @@
     <Compile Include="..\SkillTracker\Properties\CompanyInfo.cs">
       <Link>CompanyInfo.cs</Link>
     </Compile>
+    <Compile Include="Controllers\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\Routes.cs" />
   </ItemGroup>
@@ -73,6 +75,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

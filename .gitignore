@@ -17,3 +17,6 @@
 /code/SkillTracker/Backup
 /code/SkillTracker/packages
 /code/SkillTracker/_UpgradeReport_Files
+
+/Database/SkillTracker.ldf
+/Database/SkillTracker.mdf

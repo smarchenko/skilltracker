@@ -431,9 +431,11 @@ label {
   margin-left: 10px;
 }
 
-.flash-messages {
-  margin-top: 15px;
-  margin-bottom: 15px;
+.flash-messages
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-height: 50px;
 }
 
 #site-container>.container:first-child {

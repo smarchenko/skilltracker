@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SkillTracker.Web.Models.LoginModel
+
+@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,15 +10,18 @@
     <section class="flash-messages container">
     </section>
     <form class="auth-form" method="POST">
+      @Html.AntiForgeryToken()
       <div class="auth-form-header">
         <h1>Sign in</h1>
       </div>
       <div class="auth-form-body">
-        <label for="usermail">User Email</label>
-        <input autofocus="autofocus" class="input-block" id="usermail" name="usermail" tabindex="1" type="email" required="true">
+        @Html.LabelFor(m => m.UserMail, "User Email")
+        @Html.TextBoxFor(m => m.UserMail, new Dictionary<string, object>{ {"type" , "email"}, {"autofocus", "autofocus"}, {"class", "input-block"}, {"tabindex", "1"}, {"required", "true"} } )
+        @Html.ValidationMessageFor(m => m.UserMail)
 
-        <label for="password">Password <a href="#" onclick="javascript:alert('link to password recovery page here.');">(forgot password)</a></label>
-        <input class="input-block" id="password" name="password" tabindex="2" type="password" required="true">
+        @Html.LabelFor(m => m.Password, "Password")<label> <a href="#" onclick="javascript:alert('link to password recovery page here.');">(forgot password)</a></label>
+        @Html.TextBoxFor(m => m.Password, new Dictionary<string, object>{{"class", "input-block"}, {"tabindex", "2"}, {"type", "password"}, {"required", "true"}})
+        @Html.ValidationMessageFor(m => m.Password)
         <input class="button" name="commit" tabindex="3" type="submit" value="Sign in">
       </div>
     </form>

@@ -72,7 +72,7 @@ namespace SkillTracker.Tests.Controllers
       var controller = new TestLoginController { LocalUrl = false };
       var model = new TestLoginModel { Valid = false };
       var url = "/kuku";
-      var result = controller.Login(model, url) as ViewResult;
+      var result = controller.Index(model, url) as ViewResult;
       Assert.IsNotNull(result);
       Assert.AreEqual(url, result.ViewData["ReturnUrl"] as string, "Return Url should be kept");
     }
@@ -83,7 +83,7 @@ namespace SkillTracker.Tests.Controllers
       var controller = new TestLoginController {LocalUrl = false};
       var model = new TestLoginModel { Valid = false };
       var url = "/kuku";
-      var result = controller.Login(model, url) as ViewResult;
+      var result = controller.Index(model, url) as ViewResult;
       Assert.IsNotNull(result);
       Assert.IsFalse(result.ViewData.ModelState.IsValid);
     }
@@ -91,24 +91,29 @@ namespace SkillTracker.Tests.Controllers
     [TestMethod]
     public void SuccessfulLoginShouldReturnToReturnUrl()
     {
-      Assert.IsTrue(false, "test is not implemented.");
-    }
-
-    [TestMethod]
-    public void LoginCodeShouldValidateUserEmail()
-    {
-      Assert.IsTrue(false, "test is not implemented.");
-    }
-
-    [TestMethod]
-    public void LoginCodeShouldReturnErrorMessageForInvalidUser()
-    {
-      Assert.IsTrue(false, "test is not implemented.");
+      var controller = new TestLoginController { LocalUrl = true, LoginResult = true};
+      var model = new TestLoginModel { Valid = true };
+      var url = "/kuku";
+      var result = controller.Index(model, url) as RedirectResult;
+      Assert.IsNotNull(result);
+      Assert.AreEqual(url, result.Url, "return url");
     }
 
     public class TestLoginController : LoginController
     {
       public bool? LocalUrl { get; set; }
+
+      public bool? LoginResult { get; set; }
+
+      protected override bool DoLogin(LoginModel model)
+      {
+        if (this.LoginResult == null)
+        {
+          return base.DoLogin(model);
+        }
+
+        return this.LoginResult == true;
+      }
 
       protected override bool IsLocalUrl(string url)
       {

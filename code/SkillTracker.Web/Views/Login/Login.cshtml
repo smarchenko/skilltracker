@@ -8,8 +8,44 @@
 <div id="site clear-fix">
   <div class="auth-form-container" id="site-container">
     <section class="flash-messages container">
+      @if (!this.ViewData.ModelState.IsValid)
+      {
+        var messages = new List<string>();
+        foreach (string key in this.ViewData.ModelState.Keys)
+        {
+          var state = this.ViewData.ModelState[key];
+          if (state == null)
+          {
+            continue;
+          }
+          
+          foreach (ModelError error in state.Errors)
+          {
+            if (!string.IsNullOrEmpty(error.ErrorMessage))
+            {
+              messages.Add(error.ErrorMessage);
+            }
+          }
+        }
+
+        if (messages.Count > 0)
+        {
+          <text>
+            <div class="flash flash-error" id="error-message">
+              @foreach (string message in messages)
+              {
+                <text>
+                  <div>
+                    @message  
+                  </div>
+                </text>
+              }
+            </div>
+          </text>
+        }
+      }
     </section>
-    <form class="auth-form" method="POST">
+    <form class="auth-form" method="POST" action="">
       @Html.AntiForgeryToken()
       <div class="auth-form-header">
         <h1>Sign in</h1>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
+using SkillTracker.Data;
 using SkillTracker.DataGenerator.Security;
 
 namespace SkillTracker.DataGenerator
@@ -26,8 +27,9 @@ namespace SkillTracker.DataGenerator
     public static List<IDataGenerator> CreateGenerators(string[] args)
     {
       Contract.Ensures(Contract.Result<List<IDataGenerator>>() != null);
-
+      
       var result = new List<IDataGenerator>();
+      var context = new SkillTrackerContext();
 
       result.Add(new UsersGenerator());
 

@@ -6,12 +6,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using NLog;
+using SkillTracker.Web.Services.Logging;
 
 namespace SkillTracker.Web.Models
 {
 	public class LoginController : Controller
 	{
-		// GET: /Login/
+	  private ILogger logger;
+
+	  protected ILogger Logger
+	  {
+	    get { return this.logger; }
+	  }
+
+	  public LoginController(ILogger logger)
+	  {
+      Contract.Requires<ArgumentNullException>(logger != null, "logger");
+	    this.logger = logger;
+	  }
+
+	  // GET: /Login/
 		[HttpGet]
     [AllowAnonymous]
     public ActionResult Index(string returnUrl)
@@ -33,11 +48,13 @@ namespace SkillTracker.Web.Models
 
       if (!model.Validate(new ValidationContext(model)).Any() && this.DoLogin(model))
       {
+        this.Logger.Audit(string.Format("User with mail '{0}' entered the system.", model.UserMail));
         return RedirectToLocal(returnUrl);
       }
 
       // If we got this far, something failed, redisplay form
       ModelState.AddModelError("", "The user name or password provided is incorrect.");
+      this.Logger.Audit(string.Format("User with mail '{0}' provided invalid credentials.", model.UserMail??"[UNKNOWN]"));
       ViewBag.ReturnUrl = returnUrl;
       return View("Login");
 		}
@@ -77,12 +94,13 @@ namespace SkillTracker.Web.Models
 	        result = Membership.ValidateUser(userName, model.Password);
 	        if (result)
 	        {
-            FormsAuthentication.SetAuthCookie(userName, model.RememberMe);
+	          FormsAuthentication.SetAuthCookie(userName, model.RememberMe);
 	        }
 	      }
 	    }
-	    finally
+	    catch (Exception ex)
 	    {
+        this.Logger.Error(string.Format("Cannot login user with email '{0}'.", model.UserMail ?? "[UNKNOWN]"), ex);
 	    }
 
 	    return result;

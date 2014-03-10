@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using SkillTracker.Web.Services.Logging;
 
 namespace SkillTracker.Web.Infrastructure
 {
@@ -49,7 +50,9 @@ namespace SkillTracker.Web.Infrastructure
     /// </summary>
     protected virtual void AddBindings()
     {
-
+      var logger = new NLogLogger();
+      ninjectKernel.Bind<NLogLogger>().ToSelf().InSingletonScope();
+      ninjectKernel.Bind<ILogger>().ToMethod(l => l.Kernel.Get<NLogLogger>());
     }
   }
 }

@@ -7,7 +7,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using SkillTracker.Tests.Services;
 using SkillTracker.Web.Models;
+using SkillTracker.Web.Services.Logging;
 
 namespace SkillTracker.Tests.Controllers
 {
@@ -17,7 +19,7 @@ namespace SkillTracker.Tests.Controllers
     [TestMethod]
     public void IndexAction_ReturnView_Tester()
     {
-      var controller = new LoginController();
+      var controller = new LoginController(new FakeLogger());
       var result = controller.Index(null);
 
       Assert.IsTrue(result is ViewResult);
@@ -69,7 +71,7 @@ namespace SkillTracker.Tests.Controllers
     [TestMethod]
     public void KeepReturnUrlForInvalidCredentials()
     {
-      var controller = new TestLoginController { LocalUrl = false };
+      var controller = new TestLoginController(new FakeLogger()) { LocalUrl = false };
       var model = new TestLoginModel { Valid = false };
       var url = "/kuku";
       var result = controller.Index(model, url) as ViewResult;
@@ -80,7 +82,7 @@ namespace SkillTracker.Tests.Controllers
     [TestMethod]
     public void ModelErrorShouldBeReturnedForInvalidCredentials()
     {
-      var controller = new TestLoginController {LocalUrl = false};
+      var controller = new TestLoginController(new FakeLogger()) {LocalUrl = false};
       var model = new TestLoginModel { Valid = false };
       var url = "/kuku";
       var result = controller.Index(model, url) as ViewResult;
@@ -91,7 +93,7 @@ namespace SkillTracker.Tests.Controllers
     [TestMethod]
     public void SuccessfulLoginShouldReturnToReturnUrl()
     {
-      var controller = new TestLoginController { LocalUrl = true, LoginResult = true};
+      var controller = new TestLoginController(new FakeLogger()) { LocalUrl = true, LoginResult = true};
       var model = new TestLoginModel { Valid = true };
       var url = "/kuku";
       var result = controller.Index(model, url) as RedirectResult;
@@ -104,6 +106,10 @@ namespace SkillTracker.Tests.Controllers
       public bool? LocalUrl { get; set; }
 
       public bool? LoginResult { get; set; }
+
+      public TestLoginController(ILogger logger) : base(logger)
+      {
+      }
 
       protected override bool DoLogin(LoginModel model)
       {

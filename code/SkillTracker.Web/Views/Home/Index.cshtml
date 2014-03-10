@@ -1,0 +1,61 @@
+﻿@model dynamic
+
+@{
+  ViewBag.Title = "Track your skills";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="site">
+  <section class="site-container">
+    <div class="skill-filters sidebar">
+      <section class="skill-filter filter-activity">
+        <h1>Activity</h1>
+      </section>
+      <div class="sidebar-divider"></div>
+      <section class="skill-filter filter-progress">
+        <h1>Progress</h1>
+      </section>
+      <div class="sidebar-divider"></div>
+      <section class="skill-filter filter-teams">
+        <h1>Teams</h1>
+      </section>
+      <div class="sidebar-divider"></div>
+      <section class="skill-filter filter-teams">
+        <h1>Competency Categories</h1>
+      </section>
+    </div>
+    <div class="column main">
+      <div class="skill-list-header">
+        <section class="clear-filters">
+        </section>
+        <section class="search-skills command-bar find-member">
+          <div class="command-bar-form">
+            <input type="search" placeholder="Type part of the skill name or category" tabindex="1">
+            <span class="find-member-text-container minibutton no-options">Find skills
+            </span>
+          </div>
+        </section>
+      </div>
+      <section class="skills-list">
+        <div class="bubble">
+          <table class="skills">
+            <thead>
+              <tr>
+                <td class="competency-column column-main-header-text">Competency</td>
+                <td class="quarter-mark-column current">
+                  <div class="column-main-header-text">Quarter Mark</div>
+                  <div>3/2013</div>
+                </td>
+                <td class="quarter-mark-column previous">
+                  <div class="column-main-header-text">Quarter Mark</div>
+                  <div>2/2013</div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>

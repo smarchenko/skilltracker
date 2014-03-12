@@ -1,4 +1,4 @@
-﻿// Default code generation is disabled for model 'D:\Projects\GitSkillTracker\skilltracker\code\SkillTracker.Data\SkillTracker.Data\SkillTrackerModel.edmx'. 
+﻿// Default code generation is disabled for model 'C:\Work\SkillTracker\code\SkillTracker.Data\SkillTrackerModel.edmx'. 
 // To enable default code generation, change the value of the 'Code Generation Strategy' designer
 // property to an alternate value. This property is available in the Properties Window when the model is
 // open in the designer.

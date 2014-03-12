@@ -30,8 +30,10 @@ namespace SkillTracker.DataGenerator
       
       var result = new List<IDataGenerator>();
       var context = new SkillTrackerContext();
+      var unitOfWork = new UnitOfWork(context);
 
       result.Add(new UsersGenerator());
+      result.Add(new DepartmentGenerator(unitOfWork));
 
       return result;
     }

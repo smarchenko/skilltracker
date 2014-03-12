@@ -16,7 +16,7 @@ namespace SkillTracker.Data
     public partial class SkillTrackerContext : DbContext
     {
         public SkillTrackerContext()
-            : base("name=SkillTrackerContext")
+        : base("name=SkillTrackerContext")
         {
         }
     

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SkillTrackerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SkillTrackerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SkillTrackerModelStoreContainer">
           <EntitySet Name="Department" EntityType="SkillTrackerModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Position" EntityType="SkillTrackerModel.Store.Position" store:Type="Tables" Schema="dbo" />
@@ -74,6 +74,7 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -313,8 +314,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SkillTrackerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -388,6 +388,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Team" Relationship="SkillTrackerModel.FK_Team_Department" FromRole="Department" ToRole="Team" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -659,6 +660,7 @@
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="SkillTrackerModel.Department">
               <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

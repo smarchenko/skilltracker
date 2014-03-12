@@ -21,6 +21,11 @@
       file="${global.paths.datagenerator.project}\App.config"
       xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
       value="${env.sql.connectionstrings.database}" />
+
+    <xmlpoke
+      file="${global.paths.datagenerator.project}\App.config"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerContext']/@connectionString"
+      value="${env.sql.ef.connectionstrings.database}" />
     <echo message="Done."/>
     
   </target>
@@ -38,6 +43,11 @@
       file="${global.paths.data.project}\App.config"
       xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
       value="${env.sql.connectionstrings.database}" />
+
+    <xmlpoke
+      file="${global.paths.data.project}\App.config"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerContext']/@connectionString"
+      value="${env.sql.ef.connectionstrings.database}" />
     <echo message="Done."/>
 
   </target>
@@ -55,6 +65,11 @@
       file="${global.paths.web.project}\Web.config"
       xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerConnectionString']/@connectionString"
       value="${env.sql.connectionstrings.database}" />
+
+    <xmlpoke
+      file="${global.paths.web.project}\Web.config"
+      xpath="/configuration/connectionStrings/add[@name = 'SkillTrackerContext']/@connectionString"
+      value="${env.sql.ef.connectionstrings.database}" />
     <echo message="Done."/>
 
   </target>

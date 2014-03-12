@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SkillTracker.Data;
 
 namespace SkillTracker.DataGenerator
@@ -21,12 +17,22 @@ namespace SkillTracker.DataGenerator
 
     public override long Generate()
     {
-      throw new NotImplementedException();
+      try
+      {
+        this.DoCreate("PD".ToUpper(), "Product Department", null);
+      }
+      finally
+      {
+        this.UnitOfWork.Save();
+      }
+
       return this.InsertedRecords;
     }
 
-    protected void DoCreate()
+    protected void DoCreate(string code, string name, string description)
     {
+      var department = new Department {Code = code, Name = name, Description = description, Id = Guid.NewGuid()};
+      this.UnitOfWork.DepartmentRepository.Insert(department);
       this.IncrementInsertedRecords();
     }
   }

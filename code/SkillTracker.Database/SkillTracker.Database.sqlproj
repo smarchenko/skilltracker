@@ -156,4 +156,7 @@
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.InitializeMembershipData.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SkillTracker.Database.refactorlog" />
+  </ItemGroup>
 </Project>

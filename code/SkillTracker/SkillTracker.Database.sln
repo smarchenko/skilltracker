@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.DataGenerator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.Data", "..\SkillTracker.Data\SkillTracker.Data.csproj", "{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTracker.BuildScript", "..\..\buildscript\SkillTracker.BuildScript.csproj", "{0E90649D-A317-4E54-80EE-B3382C9D1889}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF38F2DD-4CA9-4DF9-9A3B-3413EE53AB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E90649D-A317-4E54-80EE-B3382C9D1889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E90649D-A317-4E54-80EE-B3382C9D1889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E90649D-A317-4E54-80EE-B3382C9D1889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E90649D-A317-4E54-80EE-B3382C9D1889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

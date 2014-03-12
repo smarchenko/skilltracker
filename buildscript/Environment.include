@@ -14,7 +14,8 @@
   <property name="env.sql.connection.pattern" value="data source=${env.sql.server};${env.sql.security}" dynamic="true"/>
   <property name="env.sql.database.name" value="SkillTracker"/>
   <property name="env.sql.connectionstrings.database" value="${env.sql.connection.pattern};initial catalog=${env.sql.database.name}" dynamic="true"/>
-  <property name="env.sql.database.timeout" value="120" />
+  <property name="env.sql.database.timeout" value="120"/>
+  <property name="env.sql.ef.connectionstrings.database" value="metadata=res://*/SkillTrackerModel.csdl|res://*/SkillTrackerModel.ssdl|res://*/SkillTrackerModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;${env.sql.connectionstrings.database};multipleactiveresultsets=True;&quot;" dynamic="true"/>
   
   <property name="global.paths.database.base.folder" value="${global.paths.root}\database"/>
   <property name="global.database.datafile.name" value="SkillTracker"/>

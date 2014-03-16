@@ -55,7 +55,7 @@ namespace SkillTracker.DataGenerator
     /// <param name="number">The number of records to increment on.</param>
     protected void IncrementInsertedRecords(long number)
     {
-      Contract.Ensures(number > 0);
+      Contract.Requires(number > (long)(0));
       _insertedRecords += number;
     }
   }

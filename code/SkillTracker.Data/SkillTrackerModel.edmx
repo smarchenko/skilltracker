@@ -83,6 +83,7 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="PositionSkillGroup">
           <Key>
@@ -137,6 +138,7 @@
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="DepartmentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="TeamPosition">
           <Key>
@@ -400,6 +402,7 @@
           <NavigationProperty Name="PositionSkillGroup" Relationship="SkillTrackerModel.FK_PositionSkillGroup_Position" FromRole="Position" ToRole="PositionSkillGroup" />
           <NavigationProperty Name="TeamPosition" Relationship="SkillTrackerModel.FK_TeamPosition_Position" FromRole="Position" ToRole="TeamPosition" />
           <NavigationProperty Name="UserPosition" Relationship="SkillTrackerModel.FK_UserPosition_Position" FromRole="Position" ToRole="UserPosition" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PositionSkillGroup">
           <Key>
@@ -468,6 +471,7 @@
           <NavigationProperty Name="TeamPosition" Relationship="SkillTrackerModel.FK_TeamPosition_Team" FromRole="Team" ToRole="TeamPosition" />
           <NavigationProperty Name="TeamSkillGroup" Relationship="SkillTrackerModel.FK_TeamSkillGroup_Team" FromRole="Team" ToRole="TeamSkillGroup" />
           <NavigationProperty Name="UserTeam" Relationship="SkillTrackerModel.FK_UserTeam_Team" FromRole="Team" ToRole="UserTeam" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TeamPosition">
           <Key>
@@ -670,6 +674,7 @@
           <EntitySetMapping Name="Position">
             <EntityTypeMapping TypeName="SkillTrackerModel.Position">
               <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -729,6 +734,7 @@
           <EntitySetMapping Name="Team">
             <EntityTypeMapping TypeName="SkillTrackerModel.Team">
               <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

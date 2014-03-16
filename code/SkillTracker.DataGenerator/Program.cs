@@ -34,6 +34,21 @@ namespace SkillTracker.DataGenerator
 
       result.Add(new UsersGenerator());
       result.Add(new DepartmentGenerator(unitOfWork));
+      result.Add(new TeamGenerator(unitOfWork));
+
+      result.Add(new PositionGenerator(unitOfWork));
+      result.Add(new TeamPositionGenerator(unitOfWork));
+
+      result.Add(new UserPositionGenerator(unitOfWork));
+      result.Add(new UserTeamGenerator(unitOfWork));
+
+      result.Add(new SkillGroupGenerator(unitOfWork));
+
+      result.Add(new PositionSkillGroupGenerator(unitOfWork));
+
+      result.Add(new TeamSkillGroupGenerator(unitOfWork));
+
+      result.Add(new SkillGenerator(unitOfWork));
 
       return result;
     }

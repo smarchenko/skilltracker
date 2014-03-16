@@ -6,5 +6,7 @@
     [DepartmentId] UNIQUEIDENTIFIER NOT NULL
 
 	CONSTRAINT [FK_Team_Department] FOREIGN KEY ([DepartmentId]) REFERENCES dbo.Department([Id]),
-    CONSTRAINT [PK_Team] PRIMARY KEY (Id),
+    [Code] NVARCHAR(10) NOT NULL, 
+    CONSTRAINT [PK_Team] PRIMARY KEY (Id), 
+    CONSTRAINT [AK_Team_Code] UNIQUE ([Code]),
 )

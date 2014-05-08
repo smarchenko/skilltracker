@@ -3,13 +3,18 @@
 
     // Default attributes for the category.
     defaults: {
-      text: "no text available...",
+      description: "no description available...",
+      name: "no name available...",
     },
 
     // Ensure that each category created has `content`.
     initialize: function () {
-      if (!this.get("text")) {
-        this.set({ "text": this.defaults.text });
+      if (!this.get("description")) {
+        this.set({ "description": this.defaults.description });
+      }
+      
+      if (!this.get("name")) {
+        this.set({ "name": this.defaults.name });
       }
     }
   });

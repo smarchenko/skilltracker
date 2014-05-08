@@ -185,10 +185,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\SkillTrackerLogo.png" />
+    <Content Include="Scripts\collections\skills.js" />
     <Content Include="Scripts\libs\backbone\backbone-min.js" />
     <Content Include="Scripts\libs\jquery\jquery-min.js" />
     <Content Include="Scripts\libs\require\requirejs-min.js" />
     <Content Include="Scripts\libs\underscore\underscore-min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\models\skill.js" />
+    <Content Include="Scripts\templates\skills.htm" />
+    <Content Include="Scripts\views\skills.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
